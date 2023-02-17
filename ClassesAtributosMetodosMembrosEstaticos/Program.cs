@@ -8,21 +8,25 @@ namespace ClassesAtributosMetodosMembrosEstaticos
         static void Main(string[] args)
         {
 
+            Triangulo x, y;
+            x = new Triangulo();
+            y = new Triangulo();
+
             Console.WriteLine("Entre com as medidas do triângulo X:");
-            double xA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double xB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double xC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Console.WriteLine("Entre com as medidas do triângulo Y:");
-            double yA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double yB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double yC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double pX = p(xA, xB, xC);
-            double pY = p(yA, yB, yC);
+            double pX = p(x.A, x.B, x.C);
+            double pY = p(y.A, y.B, y.C);
 
-            double areaX = area(xA, xB, xC, pX);
-            double areaY = area(yA, yB, yC, pY);
+            double areaX = area(x.A, x.B, x.C, pX);
+            double areaY = area(y.A, y.B, y.C, pY);
 
             Console.WriteLine("Área de X: " + areaX.ToString("F4", CultureInfo.InvariantCulture));
             Console.WriteLine("Área de X: " + areaY.ToString("F4", CultureInfo.InvariantCulture));
