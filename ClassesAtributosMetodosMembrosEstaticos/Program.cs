@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 
 namespace ClassesAtributosMetodosMembrosEstaticos
 {
@@ -7,32 +8,42 @@ namespace ClassesAtributosMetodosMembrosEstaticos
         static void Main(string[] args)
         {
 
-            Triangulo x, y;
-            x = new Triangulo();
-            y = new Triangulo();
+            Produto produto = new Produto();
 
-            Console.WriteLine("Entre com as medidas do triângulo X:");
-            x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("Entre os dados do produto: ");
+            Console.Write("Nome: ");
+            produto.Nome = Console.ReadLine();
+            Console.Write("Preço: ");
+            produto.Preco = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+            Console.Write("Quantidade no estoque: ");
+            produto.Quantidade = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Entre com as medidas do triângulo Y:");
-            y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine();
 
-            Console.WriteLine("Área de X: " + x.Area().ToString("F4", CultureInfo.InvariantCulture));
-            Console.WriteLine("Área de Y: " + y.Area().ToString("F4", CultureInfo.InvariantCulture));
+            Console.WriteLine("Dados do produto: " + produto);
 
-            if (x.Area() >= y.Area())
-            {
-                Console.WriteLine("Maior área: X");
-            }
-            else
-            {
-                Console.WriteLine("Maior área: Y");
-            }
+            Console.WriteLine();
+
+            Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
+            int quantidade = int.Parse(Console.ReadLine());
+            produto.AdicionarProdutos(quantidade);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Dados atualizados: " + produto);
+
+            Console.WriteLine();
+
+            Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
+            quantidade = int.Parse(Console.ReadLine());
+            produto.RemoverProdutos(quantidade);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Dados atualizados: " + produto);
 
         }
+
     }
+
 }
