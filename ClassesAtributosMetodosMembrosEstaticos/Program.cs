@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace ClassesAtributosMetodosMembrosEstaticos
 {
@@ -22,16 +21,10 @@ namespace ClassesAtributosMetodosMembrosEstaticos
             y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double pX = p(x.A, x.B, x.C);
-            double pY = p(y.A, y.B, y.C);
+            Console.WriteLine("Área de X: " + x.Area().ToString("F4", CultureInfo.InvariantCulture));
+            Console.WriteLine("Área de Y: " + y.Area().ToString("F4", CultureInfo.InvariantCulture));
 
-            double areaX = area(x.A, x.B, x.C, pX);
-            double areaY = area(y.A, y.B, y.C, pY);
-
-            Console.WriteLine("Área de X: " + areaX.ToString("F4", CultureInfo.InvariantCulture));
-            Console.WriteLine("Área de X: " + areaY.ToString("F4", CultureInfo.InvariantCulture));
-
-            if (areaX >= areaY)
+            if (x.Area() >= y.Area())
             {
                 Console.WriteLine("Maior área: X");
             }
@@ -40,16 +33,6 @@ namespace ClassesAtributosMetodosMembrosEstaticos
                 Console.WriteLine("Maior área: Y");
             }
 
-        }
-
-        static double p(double a, double b, double c)
-        {
-            return (a + b + c) / 2.0;
-        }
-
-        static double area(double a, double b, double c, double p)
-        {
-            return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
         }
     }
 }
